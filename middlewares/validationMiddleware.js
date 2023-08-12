@@ -1,6 +1,6 @@
 const userModel = require("../models/userModel")
 
-const validation = async(req,res) => {
+const validation = async(req,res,next) => {
    const {email,password} = req.body
 
    if(password.length < 8){
@@ -24,6 +24,8 @@ const validation = async(req,res) => {
    if(existUser){
     return res.status(400).send({"msg":"User Already Exists!"})
    }
+
+   next()
 
 }
 
