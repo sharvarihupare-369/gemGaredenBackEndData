@@ -5,12 +5,14 @@ require("dotenv").config()
 const cors = require("cors")
 const userRouter = require("./routes/userRoute")
 const cartRouter = require("./routes/cartRoute")
+const paymentRouter = require("./routes/paymentRoute")
 
 
 app.use(express.json())
 app.use(cors())
 app.use("/users",userRouter)
-app.use("/cart",cartRouter)
+app.use("/cart",cartRouter) 
+app.use("/pay",paymentRouter) 
 
 app.get("/",(req,res)=>{
     res.send("Welcome to Home Page!")
