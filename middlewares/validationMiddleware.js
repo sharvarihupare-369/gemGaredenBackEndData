@@ -1,4 +1,5 @@
-const userModel = require("../models/userModel")
+const UserModel = require("../models/userModel")
+
 
 const validation = async(req,res,next) => {
    const {email,password} = req.body
@@ -19,7 +20,7 @@ const validation = async(req,res,next) => {
     return res.status(400).send({"msg":"Password must contain a special character!"})
    }
 
-   const existUser = await userModel.findOne({email})
+   const existUser = await UserModel.findOne({email})
 
    if(existUser){
     return res.status(400).send({"msg":"User Already Exists!"})

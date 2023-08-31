@@ -4,11 +4,13 @@ const app = express()
 require("dotenv").config()
 const cors = require("cors")
 const userRouter = require("./routes/userRoute")
+const cartRouter = require("./routes/cartRoute")
 
 
 app.use(express.json())
 app.use(cors())
 app.use("/users",userRouter)
+app.use("/cart",cartRouter)
 
 app.get("/",(req,res)=>{
     res.send("Welcome to Home Page!")
